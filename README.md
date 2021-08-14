@@ -1,25 +1,19 @@
 <h1 align="center">Auctioneer 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
-  <img src="https://img.shields.io/badge/node-10.15.3-blue.svg" />
-  <a href="https://github.com/abhishekr700/OnlineAuction#readme" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
-  </a>
-  <a href="https://github.com/abhishekr700/OnlineAuction/graphs/commit-activity" target="_blank">
-    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
-  </a>
+  <img src="https://img.shields.io/badge/node-10.15.3-blue.svg" />  
+  <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   <a href=" " target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/github/license/abhishekr700/Auctioneer" />
   </a>
 </p>
 
-### 🏠 [Homepage](http://github.com/abhishekr700/OnlineAuction)
+### 🏠 [Homepage](https://github.com/Rohit-hooda/Auctioner)
 
-### ✨ [Demo](http://online-auction-app.herokuapp.com/)
 
-Auctioneer was done with an aim to apply our Web Development Skills in a real world scenario. It provides a full Auction System where people can login and sell their products or even place bids on other's products. The entire process is done online so anyone from any part of the world can place a bid at any time. 
+Auctioner was developed keeping in mind how the auction process works and also, in this age of internet how can auctions be conducted online. It provides a full Auction System where people can login and sell their products or even place bids on other's products. The entire process is done online so anyone from any part of the world can place a bid at any time. 
+
 The entire project backend is developed using Node.js utilising the Express framework for creating the API. On the databse side, we utilised both MySQL & MongoDB using their driver libraries from npm.
-The project backend was developed from scratch using Semantic.js as the framework.
 
 Features
 
