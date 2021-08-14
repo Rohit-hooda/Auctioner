@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auctioneers | Email Not Verified</title>
+    <%- include('components/headers.ejs') %>
+ <link rel="stylesheet" href="/css/email-not-verified.css">
+</head>
+<body>
+<%- include('components/navbar.ejs') %>
+<div class="ui relaxed center aligned container">
+
+        <div id="container">
+            <img src="/images/email-verify.jpg" height="100%">
+        </div>
+        <div class="msg">Please verify your E-Mail to continue :)
+
+            <div>
+                <a href="/resendEmail"><button class="ui primary button">Resend Verification Email</button>
+                </a>
+            </div></div>
+
+</div>
+<%- include('components/footer.ejs') %>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auctioneers | Items</title>
+    <%- include('components/headers'); %>
+    <script src="/js/lib/easytimer.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/items.js"></script>
+    <link rel="stylesheet" href="/css/items.css">
+</head>
+<body>
+
+<%- include('components/navbar'); %>
+
+
+<div class="ui stackable two column grid" id="container">
+    <div class="ui four wide column refine">
+        <div class="ui">
+            <div class="clr-sml"></div>
+            <div class="refine-heading"><strong>Refine your Choice</strong></div>
+            <div class="ui middle aligned divided list">
+
+                <div class="item">
+                    <div class="content">
+                        <a class="item alink" href="/items">
+                            <i class="right chevron icon"></i>
+                            All items
+                        </a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="content">
+                        <a class="item alink" href="/items/filterBidPrice/-1">
+                            <i class="right chevron icon"></i>
+                            Highest to Lowest Price
+                        </a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="content">
+
+                        <a class="item alink" href="/items/filterBidPrice/1">
+                            <i class="right chevron icon"></i>
+                            Lowest to Highest Price
+                        </a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="content">
+
+                        <a class="item alink" href="/items/filterByTime">
+                            <i class="right chevron icon"></i>
+                            According to Time left
+                        </a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="clr-sml"></div>
+                    <div class="cencontent">
+                        <form class="ui form" action="/items/filterByName" method="post">
+                            <input type="text" name="name" placeholder="Search by Name of item">
+                            <div class="ui horizontal divider">or</div>
+                            <input type="text" name="category" placeholder="Search by Category of item">
+                            <div class="clr-sml"></div>
+                            <button class="ui primary button">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="clr-sml"></div>
+            </div>
+        </div>
+    </div>
+    <div id="all-item-container" class="twelve wide column relaxed">
+        <div class="ui basic segment">
+
+            <div class="ui relaxed container" id="productlist">
+                <h1>Items in Stock</h1>
+                <div class="ui relaxed items">
+                    <% if(items.length == 0){ %>
+                    <div class="items-container">
+                        <div id="NoItems" >
+                            No Items To Show
+                            <div>
+                            </div>
+
+                            <% } else { items.forEach((item)=>{ %>
+
+                            <div class="ui item" id="<%= item._id %>">
+                                <div class="image">
+                                    <img src=<%= item.img %>>
+                                </div>
+                                <div class="ui grid content">
+                                    <div class="row">
+                                        <div class="eleven wide column">
+                                            <div class="header item-heading"><%= item.name %></div>
+                                            <br>
+                                            <div class="meta">
+                                                <div><%= item.category %></div>
+                                            </div>
+                                            <br>
+                                            <div class="extra" id="timer">
+                                                <div data-timer=<%= item._id %>>
+                                                    <span class="days"></span>
+                                                    <span>&nbsp;Days</span>
+                                                    <div class="clr-md"></div>
+                                                    <span class="hours timerValues"></span><span
+                                                            class="timerValues">:</span>
+                                                    <span class="minutes timerValues"></span><span
+                                                            class="timerValues">:</span>
+                                                    <span class="seconds timerValues"></span><span
+                                                            class="timerValues"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=" five wide column">
+                                            <div class="ui">
+                                                <div class="value minbid">
+                                                    <%= item.minbid %>
+                                                </div>
+                                                <div class="text2" data-max-price="<%= item._id %>">
+                                                    Current Value
+                                                </div>
+                                            </div>
+                                            <div id="<%= item._id %>">
+
+                                                <button class="ui primary button" id="Details" data-btn="details">
+                                                    View Details
+                                                    <i class="right chevron icon"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% })} %>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    <%- include('components/footer'); %>
+
+</body>
+</html>

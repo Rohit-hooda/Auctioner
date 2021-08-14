@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auctioneers | Password Change</title>
+    <%- include('components/headers'); %>
+    <script src="/js/change-pass.js"></script>
+    <link href="/css/password.css" rel="stylesheet">
+</head>
+<body>
+<%- include('components/navbar'); %>
+<div class="margin-top-157">
+    <div class="ui relaxed container">
+        <form class="ui form" action="/users/changePass" method="post" id="pass-form" onsubmit="return checkSame()">
+            <div class="ui stackable three column grid">
+                <div class="six wide column t22 text-center margin-top-40">
+                    <div class="text-center"><img src="/images/reset_password.png" height="80"></div>
+                    <div class="clr-sml"></div>
+                    <div class="text-center t18 blue"><b>Change Your Password</b></div>
+                    <div class="clr-sml"></div>
+                    <div class="t16 margin-left-right-20 text-center">We maintain your privacy completely by using
+                        encryption so that no one can get into your account..
+                    </div>
+                </div>
+                <div class="one wide column"></div>
+                <div class="eight wide column margin-top-40">
+                    <h4 class="ui dividing header t22 brown">Change Password</h4>
+                    <div class="clr-sml"></div>
+
+                    <div class="clr-sml"></div>
+                    <div class="field">
+                        <input type="password" name="currentpass" placeholder="Enter Current Password" required>
+
+                    </div>
+                    <div class="field">
+                        <input type="password" name="newpass" id="newpass1" placeholder="Enter New Password" required>
+
+                    </div>
+                    <div class="field">
+                        <input type="password" id="newpass2" placeholder="Re-Enter New Password" required>
+
+                    </div>
+                    <div class="clr-sml"></div>
+                    <div class="field text-center">
+                        <button class="ui primary button" type="submit">Submit</button>
+                    </div>
+                    <div class="ui negative message hidden">
+                        <i class="close icon"></i>
+                        <div class="header">
+                            The Passwords you entered do not match !
+                        </div>
+                        <p>Please re-check the values and try again.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+</div>
+<div class="clr-sml"></div>
+<br><br><br><br><br>
+<%- include('components/footer'); %>
+
+</body>
+</html>

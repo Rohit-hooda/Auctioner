@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auctioneers | Login/Signup</title>
+    <%- include('components/headers'); %>
+    <script src="/js/login.js"></script>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+<div>
+    <%- include('components/navbar'); %></div>
+<div class="margin-top-70">
+    <div class="ui relaxed container">
+        <form class="ui form" action="/login" method="post" >
+            <%if(message.length > 0){%>
+            <div class="ui negative message">
+                <i class="close icon"></i>
+                <div class="header">
+                    <%= message %>
+                </div>
+                <p>Please try again.
+                </p>
+            </div>
+            <%}%>
+            <div class="ui stackable four column grid">
+                <div class="five wide column t22 text-center">
+                    <div class="clr-sml"></div>
+                    <div class="brown">Welcome to Auctioneers!</div>
+                </div>
+
+                <div class="four wide column">
+                    <input name="username" placeholder="Username" type="text">
+                </div>
+                <div class="four wide column">
+                    <input name="password" id="password_login" placeholder="Password" type="password">
+
+                </div>
+                <div class="two wide column">
+                    <button class="ui button" type="submit">Login</button>
+                </div>
+
+            </div>
+        </form>
+        <div class="ui stackable two column grid">
+            <div class="fourteen wide column">
+                <div class="text-right"><a href="/forgot" class="t16 blue-font">Forgot Password?</a></div>
+            </div>
+        </div>
+        <div class="ui horizontal divider">
+            Or
+        </div>
+    </div>
+</div>
+
+<div class="ui relaxable container margin-top-40">
+    <div class="ui stackable grid">
+        <div class="six wide column">
+            <div class="clr-sml"></div>
+            <div class="text-center"><img src="/images/buy.png" height="80"></div>
+            <div class="clr-sml"></div>
+            <div class="text-center t16 darkblue"><b>BUY</b></div>
+            <div class="t16 margin-left-right-20 text-center">Buy the most popular products from around the world at
+                your own rate.
+            </div>
+            <br>
+            <div class="clr-sml"></div>
+            <div class="text-center"><img src="/images/sell.png" height="80"></div>
+            <div class="clr-sml"></div>
+            <div class="text-center t16 orangered"><b>SELL</b></div>
+            <div class="t16 margin-left-right-20 text-center">Sell your products to worlds top enthusiast sitting at
+                your place.
+            </div>
+
+        </div>
+        <div class="ten wide column">
+            <div class="margin-left-right-20">
+                <form class="ui form" enctype="multipart/form-data" action="/signup" method="post" onsubmit="return checkSame()">
+                    <h4 class="ui dividing header text-center heading1" >New to
+                        Auctioneers? Register
+                        with Us</h4>
+                    <div class="clr-sml"></div>
+                    <div class="field">
+                        <label class="t16">Personal Details</label>
+                        <div class="clr-sml"></div>
+                        <div class="field">
+                            <input type="file" name="imgUploader">
+                        </div>
+                        <div class="two fields">
+                            <div class="field">
+                                <input name="name" placeholder="Full Name" type="text" required>
+                            </div>
+                            <div class="field">
+                                <input name="email" placeholder="E-Mail" type="email"
+                                       data-val-regex-pattern="^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$"
+                                       data-val-required="Please enter email id" required>
+                            </div>
+                        </div>
+                        <div class="two fields">
+                            <div class="field">
+                                <input name="phone1" placeholder="Phone Number" pattern="[1-9]{1}[0-9]{9}" size="10"
+                                       maxlength="10" type="text" required>
+                            </div>
+                            <div class="field">
+                                <input name="phone2" placeholder="Alternate Phone Number" pattern="[1-9]{1}[0-9]{9}"
+                                       size="10" maxlength="10" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clr-sml"></div>
+
+                    <div class="field">
+                        <label class="t16">Login Details</label>
+                        <div class="clr-sml"></div>
+                        <div class="field">
+                            <input name="username" placeholder="Username"  type="text" required>
+                        </div>
+                        <div class="two fields">
+                            <div class="field">
+                                <input name="password" id="newpass1" minlength="6"
+                                       data-val-required="Please enter valid password"
+                                       placeholder="Password" type="password" required>
+                            </div>
+                            <div class="field">
+                                <input name="confirmPassword" id="newpass2" minlength="6"
+                                       data-val-required="Password not same"
+                                       placeholder="Confirm Password" type="password" required>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clr-sml"></div>
+                    <div class="field text-center">
+                        <button class="ui button" type="submit">Submit</button>
+                    </div>
+                    <div class="ui negative message hidden">
+                        <i class="close icon"></i>
+                        <div class="header">
+                            The Passwords you entered do not match !
+                        </div>
+                        <p>Please re-check the values and try again.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="clr-sml"></div>
+    <br>
+
+</div>
+<%- include('components/footer'); %>
+</body>
+</html>

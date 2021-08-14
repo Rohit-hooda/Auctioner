@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auctioneers | Home</title>
+    <%- include('components/headers'); %>
+    <script src="/js/lib/easytimer.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script src="/js/index.js"></script>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+<%- include('components/navbar'); %>
+<!--Jumbotron-->
+<div id="main" class="ui center aligned segment">
+    <div class="ui text relaxed container" id="main-container">
+        <div class="ui heading-container">
+            Find A Auction for You
+        </div>
+        <div class="ui stackable four column grid center aligned">
+        <form class="ui form" action="/items/filterByName" method="post">
+            <div class="row">
+                <div class="h1em"></div>
+                <div class="three wide column"></div>
+                <div class="five wide column ui input">
+                    <input type="text" name="name" placeholder="Search by Name of item" class="home-inputs">
+                </div>
+                <div class="five wide column ui input">
+                    <input type="text" name="category" placeholder="Search by Category of item" class="home-inputs">
+                </div>
+                <div class="three wide column"></div>
+            </div>
+
+            <br>
+            <button class="ui huge teal button">Find Auction</button>
+        </form>
+        </div>
+
+    </div>
+</div>
+<!--Features-->
+<div class="ui relaxed container" id="feature-container">
+    <div class="ui header center aligned">
+        <h1 class="t5 dimgrey" >Auctioneers Highlights</h1>
+    </div>
+    <br>
+    <div class="ui stackable three column grid">
+    <!--<div class="ui horizontal segments">-->
+        <div class="ui five wide column highlights" >
+            <h2 class="ui icon header">
+                <i class="wait icon darkorange"></i>
+                <div class="content">
+                    <span class="darkorange">Round The Clock Bidding</span>
+                    <div class="ui inverted section divider"></div>
+                    <div class="sub header">
+                        Your auction runs 24x7 to cater to various users around the world.
+                        We make sure everyone gets a fair chance to compete.
+                    </div>
+                </div>
+            </h2>
+        </div>
+        <div class="ui five wide column highlights" >
+            <h2 class="ui icon header">
+                <i class="alarm outline icon limegreen"></i>
+                <div class="content">
+                    <span class="limegreen">Live Notifications</span>
+                    <div class="ui inverted section divider"></div>
+                    <div class="sub header">
+                        Get live notification to your items and your own auctions.
+                        Whether you win or lose, you get to know it first !!!
+                    </div>
+                </div>
+            </h2>
+        </div>
+        <div class="ui five wide column highlights">
+            <h2 class="ui icon header">
+                <i class="privacy icon blue"></i>
+                <div class="content">
+                    <span class="blue">Privacy</span>
+                    <div class="ui inverted section divider"></div>
+                    <div class="sub header">
+                        Only the product owner gets your contact and no one else !
+                        We are dedicated to provide best possible privacy to our users.</div>
+                </div>
+            </h2>
+        </div>
+    <!--</div>-->
+    </div>
+</div>
+<!--Items-->
+<div class="ui relaxed container" id="items-container">
+    <!--Items Heading-->
+    <div class="ui header center aligned">
+        <h1 class="t5 dimgrey">Popular Live Auctions</h1>
+    </div>
+    <!--Item Cards-->
+    <div class="ui special cards container"  id="productlist">
+        <% items.forEach((item)=>{%>
+        <div class="card margin-left-5"  id="<%= item._id%>">
+            <div class="blurring dimmable image">
+                <div class="ui inverted dimmer">
+                    <div class="content" >
+                        <div class="center" id="<%= item._id%>">
+                            <button class="ui primary button" data-btn="details">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                <img  src="<%= item.img%>" class="height30">
+            </div>
+            <div class="content">
+                <div class="header"><%= item.name %></div>
+                <div class="meta">
+                    <span class="date"><%= item.category%></span>
+                </div>
+                <div class="ui statistic">
+                    <div class="value minbid">
+                        <%= item.minbid %>
+                    </div>
+                    <div class="label currentvalue" data-max-price="<%= item._id %>">
+                        Current Value
+                    </div>
+                </div>
+            </div>
+            <div class="extra content" id="timer">
+                <div data-timer=<%= item._id %>>
+                    <span class="days font1embold"></span>
+                    <span class="font1embold">&nbsp;Days</span>
+                    <br>
+                    <span class="hours timerValues"></span><span class="timerValues">:</span>
+                    <span class="minutes timerValues"></span><span class="timerValues">:</span>
+                    <span class="seconds timerValues"></span><span class="timerValues"></span>
+                </div>
+            </div>
+        </div>
+        <%})%>
+        <div class="ui container center aligned margintop2em">
+            <a href="/items?show=all">
+            <button class="ui right labeled icon button blue big">
+                <i class="right arrow icon"></i>
+                <span>View All</span>
+            </button>
+        </a>
+        </div>
+    </div>
+
+</div>
+<%- include('components/footer'); %>
+</body>
+</html>

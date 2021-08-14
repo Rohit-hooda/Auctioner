@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auctioneers | Dashboard</title>
+
+    <%- include('components/headers'); %>
+    <script src="/js/user.js"></script>
+    <link rel="stylesheet" href="/css/user.css">
+</head>
+<body>
+<%- include('components/navbar'); %>
+
+
+<div class="ui relaxed container">
+    <div id="container" class=" ui stackable two column grid">
+        <div class="ui five wide column segment center aligned">
+            <div class="row">
+                <img src="<%= user.dataValues.img %>" class="profile-pic">
+            </div>
+            <div class="ui horizontal divider">Your Details</div>
+            <div class="ui left aligned t18">
+                <div class="clr-sml"></div>
+                <div class="t20"><strong><%= user.dataValues.username %></strong></div>
+                <div class="clr-sml"></div>
+                <div class="clr-sml"></div>
+                <div class="stackable one column grid">
+                    <div class="row">Email-Id: <strong><%= user.dataValues.email %></strong></div>
+                    <div class="clr-sml"></div>
+                    <div class="row">
+                        <div class="ui two column grid">
+                            <div class="eight wide column right aligned">
+                                Phone1:&nbsp;&nbsp;&nbsp;&nbsp;<span id="ChangePhone1Button"
+                                                                     data-phone="<%= user.dataValues.phone1 %>">
+                                <i class="edit icon"></i>
+                            </span>
+                            </div>
+                            <div class="eight wide column phone">
+                                <div id="contentedit">
+                                    <%= user.dataValues.phone1 %>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="clr-sml"></div>
+                    <div class="row">
+                        <div class="ui two column grid">
+                            <div class="eight wide column right aligned">
+                                Phone2:&nbsp;&nbsp;&nbsp;&nbsp;<span id="ChangePhone2Button"
+                                                                     data-phone="<%= user.dataValues.phone2 %>"
+                                >
+                                <i class="edit icon"></i>
+                            </span>
+
+                            </div>
+                            <div class="eight wide column phone">
+                                <div id="contentedit2">
+                                    <%= user.dataValues.phone2 %>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="clr-sml"></div>
+
+                <div id="edit-message"></div>
+                <div class="clr-sml"></div>
+                <button class="ui right button blue" id="editProfile">Edit Profile</button>
+            </div>
+            <div class="clr-sml"></div>
+            <a href="/users/changePass">
+                <button class="ui right labeled icon button red">
+                    <i class="right arrow icon"></i>
+                    <span>Edit Password</span>
+                </button>
+            </a>
+        </div>
+        <div class="eleven wide column center aligned">
+            <h1 class="xxlargefont">
+                Welcome <%= user.dataValues.username %> !!!
+            </h1>
+            <div class="ui compact vertical labeled icon menu stackable five column grid user-profile">
+                <div class="five wide column center aligned">
+                    <a href="/users/profile">
+                        <button class="circular ui icon yellow button massive button-link"
+                        >
+                            <img src="../images/profile.png" height="100vmax">
+                        </button>
+                    </a>
+                    <div class="points">View Your Profile Page and Edit it.</div>
+                </div>
+                <div class="five wide column">
+                    <a href="/items?show=user">
+                        <button class="circular ui icon orange button massive button-link"
+                        >
+                            <img src="../images/itemplaced.png" height="100vmax">
+                        </button>
+                    </a>
+                    <div class="points">View Items that you have Placed to Sell.</div>
+                </div>
+                <div class="five wide column">
+                    <a href="/items?show=userbids">
+                        <button class="circular ui icon teal button massive button-link"
+                        >
+                            <img src="../images/userbids.png" height="100vmax">
+                        </button>
+                    </a>
+                    <div class="points">View items that you have placed a Bid on.</div>
+                </div>
+                <div class="five wide column">
+                    <a href="/items?show=others">
+                        <button class="circular ui icon olive button massive button-link">
+                            <img src="../images/placed_item-dashboard.png" height="100vmax">
+                        </button>
+                    </a>
+                    <div class="points">Buy an Item from the ongoing Bids.</div>
+                </div>
+                <div class="five wide column">
+                    <a href="/items/add">
+                        <button class="circular ui icon positive button massive button-link">
+                            <img src="../images/sell-dashboard.png" height="100vmax">
+                        </button>
+                    </a>
+                    <div class="points">Sell your item on Auctioneers.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<%- include('components/footer'); %>
+</body>
+</html>
