@@ -1,19 +1,17 @@
-<h1 align="center">Auctioneer 👋</h1>
+<h1 align="center">Auctioner 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <img src="https://img.shields.io/badge/node-10.15.3-blue.svg" />  
   <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
-  <a href=" " target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/abhishekr700/Auctioneer" />
-  </a>
+
 </p>
 
 ### 🏠 [Homepage](https://github.com/Rohit-hooda/Auctioner)
 
 
-Auctioner was developed keeping in mind how the auction process works and also, in this age of internet how can auctions be conducted online. It provides a full Auction System where people can login and sell their products or even place bids on other's products. The entire process is done online so anyone from any part of the world can place a bid at any time. 
+Auctioner was developed with a goal to make the auction process easier and accessible to people around the globe. It provides a system where people can login and sell their products or even place bids on other's products. The entire process is done online so anyone from any part of the world can place a bid at any time. 
 
-The entire project backend is developed using Node.js utilising the Express framework for creating the API. On the databse side, we utilised both MySQL & MongoDB using their driver libraries from npm.
+The entire project backend is developed using Node.js utilising the Express framework for creating the API. On the databse side, i have utilised both MySQL & MongoDB using their driver libraries from npm.
 
 Features
 
